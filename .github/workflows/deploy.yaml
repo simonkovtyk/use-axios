@@ -20,6 +20,10 @@ jobs:
         with:
           release-type: node
 
+      - name: Checkout
+        uses: actions/checkout@v4
+        if: ${{ steps.release_please.outputs.release_created }}
+
       - name: Install pnpm 
         if: ${{ steps.release_please.outputs.release_created }}
         uses: pnpm/action-setup@v4
