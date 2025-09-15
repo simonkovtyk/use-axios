@@ -1,23 +1,47 @@
 <div align="center">
-  
+
   # useAxios
   A custom React hook that provides a state-driven interface for Axios requests.
-  
+
   [![Last Release Badge](https://img.shields.io/github/v/release/simonkovtyk/use-axios?sort=semver&display_name=release&color=7300ff&labelColor=27272a)](../../releases/latest)
   [![GitHub License Badge](https://img.shields.io/github/license/simonkovtyk/use-axios?color=7300ff&labelColor=27272a)](./LICENSE)
-  ![Contributions Welcomed](https://img.shields.io/badge/contributions-welcomed-7300ff?labelColor=27272a)
+  [![Contributions Welcomed Badge](https://img.shields.io/badge/contributions-welcomed-7300ff?labelColor=27272a)](#contributing)
   [![Sponsor Hint Badge](https://img.shields.io/badge/❤️-Sponsor_it-%23dc2626?style=flat&labelColor=27272a)](https://github.com/sponsors/simonkovtyk/)
-  
+
 </div>
 
+## Introduction
 It manages loading, success, and error states automatically, enabling seamless integration of asynchronous API calls into components.
 
 The hook simplifies data fetching by exposing a clean API to trigger requests, track request state, and access response data or errors without manually handling state transitions.
 
 ## Install
+<details open>
+<summary>pnpm</summary>
+
 ```shell
 pnpm i @simonkov/use-axios
 ```
+
+</details>
+
+<details>
+<summary>npm</summary>
+
+```shell
+npm i @simonkov/use-axios
+```
+
+</details>
+
+<details>
+<summary>yarn</summary>
+
+```shell
+yarn add @simonkov/use-axios
+```
+
+</details>
 
 Or just use your package manager of choice.
 
@@ -50,6 +74,6 @@ We are committed to keeping a welcoming, inclusive, and respectful community for
 
 All trademarks and registered trademarks mentioned are property of their respective owners and are used for identification purposes only. Use of these names does not imply endorsement or affiliation.
 
-This project is a trademark of Dark Orchid. The License does not grant rights to use the trademark without permission.
+This project is a trademark of Simon Kovtyk. The License does not grant rights to use the trademark without permission.
 
 © 2025 — present by Maintainers & Simon Kovtyk
