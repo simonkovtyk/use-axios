@@ -45,7 +45,7 @@ jobs:
 
       - name: Prepare Publish
         if: ${{ steps.release_please.outputs.release_created }}
-        run: echo "//registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN}" >> .npmrc
+        run: echo //registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN} >> .npmrc
 
       - name: Publish
         if: ${{ steps.release_please.outputs.release_created }}
