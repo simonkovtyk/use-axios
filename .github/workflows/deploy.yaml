@@ -1,0 +1,48 @@
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+name: release
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run release-please
+        id: release_please
+        uses: googleapis/release-please-action@v4
+        with:
+          release-type: node
+
+      - name: Install pnpm 
+        if: ${{ steps.release_please.outputs.release_created }}
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - name: Install Node.js
+        if: ${{ steps.release_please.outputs.release_created }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "pnpm"
+
+      - name: Install dependencies
+        if: ${{ steps.release_please.outputs.release_created }}
+        run: pnpm install --frozen-lockfile
+
+      - name: Build
+        if: ${{ steps.release_please.outputs.release_created }}
+        run: pnpm run build
+
+      - name: Publish
+        if: ${{ steps.release_please.outputs.release_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+        run: pnpm publish
