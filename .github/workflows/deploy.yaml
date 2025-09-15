@@ -27,8 +27,6 @@ jobs:
       - name: Install pnpm 
         if: ${{ steps.release_please.outputs.release_created }}
         uses: pnpm/action-setup@v4
-        with:
-          version: 10
 
       - name: Install Node.js
         if: ${{ steps.release_please.outputs.release_created }}
