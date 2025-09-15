@@ -1,0 +1,25 @@
+{
+  "name": "@simonkov/use-axios",
+  "version": "0.1.0",
+  "main": "./dist/main.js",
+  "types": "./dist/main.d.ts",
+  "exports": {
+    "types": "./dist/main.d.ts",
+    "default": "./dist/main.js"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "author": "Simon Kovtyk",
+  "license": "MIT",
+  "packageManager": "pnpm@10.16.1",
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/react": "^19",
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "axios": "^1",
+    "react": "^19"
+  }
+}
