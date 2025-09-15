@@ -2,7 +2,7 @@
   "name": "@simonkov/use-axios",
   "description": "A custom React hook that provides a state-driven interface for Axios requests.",
   "homepage": "https://github.com/simonkovtyk/use-axios?tab=readme-ov-file",
-    "repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/simonkovtyk/use-axios.git"
   },
@@ -10,7 +10,7 @@
     "type": "github",
     "url": "https://github.com/sponsors/simonkovtyk/"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "exports": {
