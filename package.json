@@ -1,5 +1,15 @@
 {
   "name": "@simonkov/use-axios",
+  "description": "A custom React hook that provides a state-driven interface for Axios requests.",
+  "homepage": "https://github.com/simonkovtyk/use-axios?tab=readme-ov-file",
+    "repository": {
+    "type": "git",
+    "url": "git+https://github.com/simonkovtyk/use-axios.git"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/simonkovtyk/"
+  },
   "version": "0.1.0",
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
@@ -10,7 +20,33 @@
   "scripts": {
     "build": "tsc"
   },
-  "author": "Simon Kovtyk",
+  "keywords": [
+    "axios",
+    "use-axios",
+    "axios-hook",
+    "axios-hooks",
+    "react",
+    "react-hook",
+    "react-hooks",
+    "custom-hook",
+    "http",
+    "request",
+    "api",
+    "api-client",
+    "data-fetching",
+    "rest-client",
+    "fetch",
+    "loading",
+    "error-handling",
+    "async",
+    "typescript",
+    "frontend"
+  ],
+  "author": {
+    "name": "Simon Kovtyk",
+    "email": "simon@kovtyk.com",
+    "url": "https://github.com/simonkovtyk"
+  },
   "license": "MIT",
   "packageManager": "pnpm@10.16.1",
   "devDependencies": {
