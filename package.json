@@ -10,7 +10,7 @@
     "type": "github",
     "url": "https://github.com/sponsors/simonkovtyk/"
   },
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "./dist/main.js",
   "types": "./dist/main.d.ts",
   "exports": {
