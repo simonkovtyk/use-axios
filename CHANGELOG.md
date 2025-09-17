@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/simonkovtyk/use-axios/compare/v1.0.1...v1.1.0) (2025-09-17)
+
+
+### Features
+
+* flush state update before resolve ([5c4c209](https://github.com/simonkovtyk/use-axios/commit/5c4c209842c0bc55a218ea51a51ef29389ea8a49))
+
 ## [1.0.1](https://github.com/simonkovtyk/use-axios/compare/v1.0.0...v1.0.1) (2025-09-15)
 
 
