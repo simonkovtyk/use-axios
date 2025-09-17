@@ -1,5 +1,6 @@
 import axios, { AxiosError, type AxiosInstance, type AxiosRequestConfig, type AxiosResponse, type InternalAxiosRequestConfig } from "axios";
 import React, { useEffect } from "react";
+import { flushSync } from "react-dom";
 
 export type UseAxiosIndicators = {
 	isFinished: boolean;
@@ -84,7 +85,6 @@ export function useAxios<T = any, C = any, R = AxiosResponse<T>, D = any> (
 		}));
 
 		return new Promise<R>((resolve, reject) => {
-			console.log(invocationCount);
 			if (options?.preventConcurrent && invocationCount.current !== 0) {
 				setState((curr) => ({
 					...curr,
@@ -102,25 +102,32 @@ export function useAxios<T = any, C = any, R = AxiosResponse<T>, D = any> (
 			++invocationCount.current;
 
 			maybeIntercepted.then((response) => {
-				setState((curr) => ({
-					...curr,
-					...RESET_STATE_FLAGS,
-					isFinished: true,
-					isSuccess: true,
-					response
-				}));
-				resolve(response);
+        queueMicrotask(() => {
+          flushSync(() => {
+            setState((curr) => ({
+              ...curr,
+              ...RESET_STATE_FLAGS,
+              isFinished: true,
+              isSuccess: true,
+              response
+            }));
+            resolve(response);
+          });
+        });
 			})
 			.catch((error) => {
-				console.log(error);
-				setState((curr) => ({
-					...curr,
-					...RESET_STATE_FLAGS,
-					isFinished: true,
-					isError: true,
-					error
-				}))
-				reject(error);
+        queueMicrotask(() => {
+          flushSync(() => {
+            setState((curr) => ({
+              ...curr,
+              ...RESET_STATE_FLAGS,
+              isFinished: true,
+              isError: true,
+              error
+            }))
+            reject(error);
+          })
+        })
 			})
 			.finally(() => {
 				--invocationCount.current;
