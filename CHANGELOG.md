@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/simonkovtyk/use-axios/compare/v1.1.0...v1.2.0) (2025-10-14)
+
+
+### Features
+
+* improve config merge ([918740c](https://github.com/simonkovtyk/use-axios/commit/918740c6db5e056f698b464d377fe5089c6263fe))
+
 ## [1.1.0](https://github.com/simonkovtyk/use-axios/compare/v1.0.1...v1.1.0) (2025-09-17)
 
 
