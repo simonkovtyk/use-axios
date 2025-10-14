@@ -15,7 +15,6 @@ export type UseAxiosIndicators = {
 export type UseAxiosState<T = any, C = any, R = AxiosResponse<T>> = {
 	response: R | null,
 	error: AxiosError<C> | null;
-	abort: (reason?: any) => void;
 } & UseAxiosIndicators;
 
 export type UseAxiosReturn<T = any, C = any, R = AxiosResponse<T>, D = any> = [
@@ -51,29 +50,17 @@ export function useAxios<T = any, C = any, R = AxiosResponse<T>, D = any> (
 	requestConfig: AxiosRequestConfig<D>,
 	options?: UseAxiosOptions<T, R>
 ): UseAxiosReturn<T, C, R, D> | UseAxiosState<T, C, R> {
-	let abortController = new AbortController();
 	const invocationCount = React.useRef(0);
-
-	function abort (reason?: any) {
-		abortController.abort(reason);
-		setState((curr) => ({
-			...curr,
-			...RESET_STATE_FLAGS,
-			isAborted: true
-		}));
-		abortController = new AbortController();
-	}
 
 	const [state, setState] = React.useState<UseAxiosState<T, C, R>>({
 		...RESET_STATE_FLAGS,
-		abort,
 		response: null,
 		error: null,
 		isPending: true
 	});
 
 	function request (config?: AxiosRequestConfig<D>) {
-		const mergedConfig = {...requestConfig, ...config, signal: abortController.signal};
+		const mergedConfig = {...requestConfig, ...config};
 
 		const request = (options?.instance || axios).request<T, R, D>(mergedConfig);
 		const maybeIntercepted = options?.intercept === undefined ? request : options.intercept(request);

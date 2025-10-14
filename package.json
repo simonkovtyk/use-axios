@@ -11,11 +11,13 @@
     "url": "https://github.com/sponsors/simonkovtyk/"
   },
   "version": "1.0.1",
-  "main": "./dist/main.js",
-  "types": "./dist/main.d.ts",
+  "type": "module",
+  "main": "dist/main.js",
+  "module": "dist/main.js",
+  "types": "dist/main.d.ts",
   "exports": {
-    "types": "./dist/main.d.ts",
-    "default": "./dist/main.js"
+    "import": "dist/main.js",
+    "types": "dist/main.d.ts"
   },
   "scripts": {
     "build": "tsc"
